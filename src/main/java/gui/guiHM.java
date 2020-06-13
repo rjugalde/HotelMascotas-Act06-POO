@@ -16,6 +16,7 @@ public class guiHM extends javax.swing.JFrame {
      */
     public guiHM() {
         initComponents();
+        //cambio de prueba
     }
 
     /**
