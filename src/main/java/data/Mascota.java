@@ -5,11 +5,13 @@
  */
 package data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ragnarok
  */
-class Mascota {
+public class Mascota implements Serializable {
     private int id;
     private String nombre;
     private String raza;
@@ -69,6 +71,11 @@ class Mascota {
 
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Mascota{" + "id=" + id + ", nombre=" + nombre + ", raza=" + raza + ", elDueno=" + elDueno + ", cantidad=" + cantidad + '}';
     }
     
     

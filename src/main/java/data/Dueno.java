@@ -5,11 +5,13 @@
  */
 package data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ragnarok
  */
-public class Dueno {
+public class Dueno implements Serializable{
     private String nombre;
     private String celular; 
 
