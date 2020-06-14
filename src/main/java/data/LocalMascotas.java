@@ -18,12 +18,27 @@ import java.util.Calendar;
 public class LocalMascotas {
 
     public int maxCapacity;
-    private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
-    private ArrayList<Alimento> inventario = new ArrayList<Alimento>();
+    private ArrayList<Contrato> contratos ;
+    private ArrayList<Alimento> inventario ;
     private Hospedaje[] hospedaje;
 
+    public LocalMascotas(){
+        this.maxCapacity = 10;
+        this.contratos = new ArrayList<Contrato>();
+        this.inventario  = new ArrayList<Alimento>();
+        
+    }
+    public void setHospedaje(Hospedaje[] hospedaje) {
+        this.hospedaje = hospedaje;
+    }
+
+    public void agregarContrato(Contrato c){
+        this.contratos.add(c);
+        //validarHospedaje(c);
+    }
     public boolean validarHospedaje(Contrato c) {
         boolean hospedar = false;
+        
         for (int i = 0; i < hospedaje.length; i++) {
             if (hospedaje[i].getFecha().equals(c.getFechaInicio())) {
                 if (hospedaje[i].insertar(c)) {
@@ -45,11 +60,13 @@ public class LocalMascotas {
         Date fecha = fechaIni;
         int i = 0;
         while (fecha.before(fechaFin) | fecha.equals(fechaFin)) {
-            System.out.print(fecha);
+            
             hospedaje[i] = new Hospedaje(fecha);
             fecha = siguienteDia(fecha);
+            //System.out.println(fecha);
             i++;
         }
+        
     }
 
     public Date siguienteDia(Date fecha) {
