@@ -12,10 +12,14 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Ragnarok
  */
-class BitacoraAlimentacion {
+public class BitacoraAlimentacion {
     private LocalDateTime fecha;
     private LocalDateTime hora;
     private EstadoAlimentacion estado;
+    
+    public BitacoraAlimentacion(){
+        
+    }
 
     public BitacoraAlimentacion(LocalDateTime fecha, LocalDateTime hora, EstadoAlimentacion estado) {
         this.fecha = fecha;

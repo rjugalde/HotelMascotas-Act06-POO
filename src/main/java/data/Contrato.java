@@ -7,6 +7,7 @@ package data;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -14,13 +15,13 @@ import java.util.ArrayList;
  */
 public class Contrato {
     private int numero;
-    private LocalDateTime FechaInicio;
-    private LocalDateTime FechaFinal;
+    private Date FechaInicio;
+    private Date FechaFinal;
     private Mascota LaMascota;
     private double CostoXdia;
     private ArrayList<BitacoraAlimentacion> registros = new ArrayList<BitacoraAlimentacion>();
 
-    public Contrato(int numero, LocalDateTime FechaInicio, LocalDateTime FechaFinal, Mascota LaMascota, double CostoXdia) {
+    public Contrato(int numero, Date FechaInicio, Date FechaFinal, Mascota LaMascota, double CostoXdia) {
         this.numero = numero;
         this.FechaInicio = FechaInicio;
         this.FechaFinal = FechaFinal;
@@ -36,19 +37,19 @@ public class Contrato {
         this.numero = numero;
     }
 
-    public LocalDateTime getFechaInicio() {
+    public Date getFechaInicio() {
         return FechaInicio;
     }
 
-    public void setFechaInicio(LocalDateTime FechaInicio) {
+    public void setFechaInicio(Date FechaInicio) {
         this.FechaInicio = FechaInicio;
     }
 
-    public LocalDateTime getFechaFinal() {
+    public Date getFechaFinal() {
         return FechaFinal;
     }
 
-    public void setFechaFinal(LocalDateTime FechaFinal) {
+    public void setFechaFinal(Date FechaFinal) {
         this.FechaFinal = FechaFinal;
     }
 
