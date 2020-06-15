@@ -47,11 +47,13 @@ public class Hospedaje {
                     //System.out.print("Entro a contrato vacio");
                     contratos[i] = c;
                     h = true;
+                    break;
                     
 
-                } else{
+                } else if(contratos[i].getLaMascota().getNombre()!= ""){
                     contratos[i] = c;
                     h = true;
+                    break;
                 }
             
         }}

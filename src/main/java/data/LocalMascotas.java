@@ -18,55 +18,61 @@ import java.util.Calendar;
 public class LocalMascotas {
 
     public int maxCapacity;
-    private ArrayList<Contrato> contratos ;
-    private ArrayList<Alimento> inventario ;
+    private ArrayList<Contrato> contratos;
+    private ArrayList<Alimento> inventario;
     private Hospedaje[] hospedaje;
 
-    public LocalMascotas(){
+    public LocalMascotas() {
         this.maxCapacity = 10;
         this.contratos = new ArrayList<Contrato>();
-        this.inventario  = new ArrayList<Alimento>();
-        
+        this.inventario = new ArrayList<Alimento>();
+
     }
+
+    public void imprimir() {
+        for (int i = 0; i < hospedaje.length; i++) {
+            hospedaje[i].imprimir();
+        }
+    }
+
     public void setHospedaje(Hospedaje[] hospedaje) {
         this.hospedaje = hospedaje;
     }
 
-    public void agregarContrato(Contrato c){
+    public void agregarContrato(Contrato c) {
         this.contratos.add(c);
-        //validarHospedaje(c);
+        validarHospedaje(c);
+        
     }
+
     public boolean validarHospedaje(Contrato c) {
         boolean hospedar = false;
-        
-        for (int i = 0; i < hospedaje.length; i++) {
-            if (hospedaje[i].getFecha().equals(c.getFechaInicio())) {
-                if (hospedaje[i].insertar(c)) {
-                    
 
-                } else {
-
-                }
+        while (!hospedar) {
+            for (int i = 0; i < hospedaje.length; i++) {
+                if (hospedaje[i].getFecha().equals(c.getFechaInicio()) & hospedaje[i].getContratos() != null) {
+                    hospedaje[i].insertar(c);
+                    hospedar = true;
+                    break;
+                }}
             }
+
+            return hospedar;
 
         }
 
-        return hospedar;
-
-    }
-
-    public void generarHospedaje(Date fechaIni, Date fechaFin) {
+public void generarHospedaje(Date fechaIni, Date fechaFin) {
         hospedaje = new Hospedaje[cantidadDias(fechaIni, fechaFin)];
         Date fecha = fechaIni;
         int i = 0;
         while (fecha.before(fechaFin) | fecha.equals(fechaFin)) {
-            
+
             hospedaje[i] = new Hospedaje(fecha);
             fecha = siguienteDia(fecha);
             //System.out.println(fecha);
             i++;
         }
-        
+
     }
 
     public Date siguienteDia(Date fecha) {
