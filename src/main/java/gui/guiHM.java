@@ -91,6 +91,8 @@ public class guiHM extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuAgregar = new javax.swing.JMenuItem();
+        menuAgregar1 = new javax.swing.JMenuItem();
+        menuAgregarAlimento = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -338,6 +340,22 @@ public class guiHM extends javax.swing.JFrame {
         });
         jMenu1.add(menuAgregar);
 
+        menuAgregar1.setText("Agregar contrato");
+        menuAgregar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAgregar1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuAgregar1);
+
+        menuAgregarAlimento.setText("Agregar alimento");
+        menuAgregarAlimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAgregarAlimentoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuAgregarAlimento);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -406,6 +424,19 @@ public class guiHM extends javax.swing.JFrame {
         txtResult.setText(alimento.toString());
     }//GEN-LAST:event_btnCrearAlimentoActionPerformed
 
+    private void menuAgregar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregar1ActionPerformed
+        panelAlimento.setVisible(false);
+        panelContratos.setVisible(false);
+        panelAgregar.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuAgregar1ActionPerformed
+
+    private void menuAgregarAlimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregarAlimentoActionPerformed
+        // TODO add your handling code here:
+        panelAgregar.setVisible(false);
+        panelAlimento.setVisible(true);
+    }//GEN-LAST:event_menuAgregarAlimentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -473,6 +504,8 @@ public class guiHM extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField mascotaNombre;
     private javax.swing.JMenuItem menuAgregar;
+    private javax.swing.JMenuItem menuAgregar1;
+    private javax.swing.JMenuItem menuAgregarAlimento;
     private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelAlimento;
     private javax.swing.JPanel panelContratos;
