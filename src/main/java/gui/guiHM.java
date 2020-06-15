@@ -33,6 +33,9 @@ public class guiHM extends javax.swing.JFrame {
     public guiHM() {
         initComponents();
         panelAgregar.setVisible(false);
+        panelAlimento.setVisible(false);
+        panelContratos.setVisible(false);
+        
         local.generarHospedaje(new Date(2020,0,1),new Date(2020,1,2));
         Dueno d1 = new Dueno("Jorge", "123456");
         Mascota m1 = new Mascota(0,"paco", "perro", d1, 100 );
@@ -402,6 +405,9 @@ public class guiHM extends javax.swing.JFrame {
 
     private void menuAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAgregarActionPerformed
         panelAgregar.setVisible(true);
+        panelAlimento.setVisible(false);
+        panelContratos.setVisible(false);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_menuAgregarActionPerformed
 
@@ -411,9 +417,8 @@ public class guiHM extends javax.swing.JFrame {
         Mascota m = new Mascota(local.getContratos().size(), mascotaNombre.getText(), especieCombo.getSelectedItem().toString(), d, (Double) cantidad.getValue()/1000);
         Contrato c = new Contrato(local.getContratos().size(), (Date) fechaIni.getValue(), (Date) fechaFin.getValue(),m, (Double) costo.getValue() );
         local.getContratos().add(c);
-        
-        System.out.print(local.getContratos());
-        
+        System.out.print("nada");
+       local.imprimir();
         // TODO add your handling code here:
     }//GEN-LAST:event_botonAgregarActionPerformed
 
@@ -421,6 +426,8 @@ public class guiHM extends javax.swing.JFrame {
         // TODO add your handling code here:
         panelAgregar.setVisible(false);
         panelAlimento.setVisible(true);
+        panelContratos.setVisible(false);
+        
     }//GEN-LAST:event_menuAgregarAlimentoActionPerformed
 
     private void btnCrearAlimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAlimentoActionPerformed
