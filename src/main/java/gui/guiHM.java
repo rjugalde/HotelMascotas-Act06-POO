@@ -22,13 +22,23 @@ public class guiHM extends javax.swing.JFrame {
     /**
      * Creates new form guiHM
      */
-    private LocalMascotas local = new LocalMascotas();
+    LocalMascotas local = new LocalMascotas();
+        
 
     public guiHM() {
         initComponents();
         panelAgregar.setVisible(false);
+        local.generarHospedaje(new Date(2020,0,1),new Date(2020,1,2));
+        Dueno d1 = new Dueno("Jorge", "123456");
+        Mascota m1 = new Mascota(0,"paco", "perro", d1, 100 );
+        Contrato c1 = new Contrato(0,new Date(2020,1,1),new Date(2020,2,2),m1, 100 );
+        local.agregarContrato(c1);
+        local.agregarContrato(c1);
         
-
+        local.imprimir();
+        //System.out.print(local.getContratos().get(0).getLaMascota().getNombre());
+        //System.out.print(m1.getElDueno().getCelular());
+        //local.validarHospedaje(c1);
         
     }
 
@@ -239,6 +249,7 @@ public class guiHM extends javax.swing.JFrame {
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
 
+        
         Dueno d = new Dueno(dueñoNombre.getText(), celular.getText());
         Mascota m = new Mascota(local.getContratos().size(), mascotaNombre.getText(), especieCombo.getSelectedItem().toString(), d, (Double) cantidad.getValue()/1000);
         Contrato c = new Contrato(local.getContratos().size(), (Date) fechaIni.getValue(), (Date) fechaFin.getValue(),m, (Double) costo.getValue() );
