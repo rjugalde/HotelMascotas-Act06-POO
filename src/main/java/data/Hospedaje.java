@@ -12,30 +12,56 @@ import java.util.Date;
  * @author USER
  */
 public class Hospedaje {
-    
+
     private Date fecha;
     private Contrato[] contratos = new Contrato[10];
+
+    ;
     
-    public Hospedaje(){
-        
+    public Hospedaje() {
+        fecha = new Date();
     }
 
-    public boolean insertar(Contrato c){
-        boolean h = false;
-        while(!h){
-            for(int i = 0; i <10; i++ ){
-            if(contratos[i].getLaMascota().equals("")){
-            contratos[i] = c;
-            h = true;
+    public void imprimir() {
+        System.out.println(this.fecha);
+            
+        for (int i = 0; i < 10; i++) {
+            if(this.contratos[i] == null){
+            System.out.println("Disponible");
+            ;   
             }
+            else{
+            System.out.println(this.contratos[i].getLaMascota().getNombre());
+            System.out.println(this.fecha);
+            ;
+        }
+        }}
+
+    public boolean insertar(Contrato c) {
+        boolean h = false;
+        
+        while (!h) {
+            for (int i = 0; i < 10; i++) {
+                //System.out.println(contratos[i]);
+                if (contratos[i] == null) {
+                    //System.out.print("Entro a contrato vacio");
+                    contratos[i] = c;
+                    h = true;
+                    
+
+                } else{
+                    contratos[i] = c;
+                    h = true;
+                }
+            
         }}
         return h;
     }
-    
+
     public Date getFecha() {
         return fecha;
     }
-    
+
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -51,7 +77,5 @@ public class Hospedaje {
     public Hospedaje(Date fecha) {
         this.fecha = fecha;
     }
-    
-    
-    
+
 }
